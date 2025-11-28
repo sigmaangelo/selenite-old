@@ -1,131 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<style>
-    body {
-        background: orange;
-        color: white;
-        font-family: Arial, sans-serif;
-        text-align: center;
-        margin: 0;
-        padding: 20px;
-    }
-
-    button, a.game-btn {
-        background: #1a1f29;
-        color: #dddddd;
-        border: 2px solid #5C4033;
-        padding: 12px 20px;
-        border-radius: 10px;
-        display: inline-block;
-        margin: 8px;
-        font-size: 18px;
-        text-decoration: none;
-        cursor: pointer;
-        transition: 0.25s;
-        width: 240px;
-        text-shadow: 0.5px 0.5px orange;
-        text-align: center;
-    }
-
-    button:hover, a.game-btn:hover {
-        background: #c98c53;
-        color: black;
-        text-shadow: 2px 2px orange;
-        box-shadow: 0 0 28px #FF5C00;
-        border: 2px solid rgba(0,0,0, 0.75);
-        transform: scale(1.05);
-    }
-
-    #anel {
-        display: none;
-        margin-top: 30px;
-    }
-
-    .grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 25px;
-        gap: 12px;
-    }
-
-    .colorh1 {
-        color:#a84232;
-    }
-
-    .pcolor {
-        color:#a84232;
-    }
-</style>
-
-<script>
-    function cloak(url) {
-        let win = window.open("about:blank", "_blank");
-        let iframe = win.document.createElement("iframe");
-        iframe.src = url;
-        iframe.style = "position:fixed;top:0;left:0;width:100%;height:100%;border:none;";
-        win.document.body.style.margin = "0";
-        win.document.body.appendChild(iframe);
-    }
-
-    document.addEventListener("keydown", function(e) {
-        if (e.key.toLowerCase() === "t") {
-            window.location.href = "https://classroom.mcpsmd.org/";
-        }
-    });
-</script>
+<meta charset="UTF-8">
+<title>Sigma Games</title>
 </head>
-
 <body>
-    <big><h1 class="colorh1">Sigma Games 🎮🗿🧏</h1></big>
-    <p class="pcolor">THANKSGIVING UPDATE! 2.O</p>
-    <p class="pcolor">Added new games and fixed non working ones</p>
-    <p class="pcolor">BIG THANKS TO INDIAN SCAMMER AND ITALIAN PIZZA MAKER FOR MAKING THE CSS FOR THIS WEBPAGE</p>
-    <p class="pcolor">THANKS - PASTABOY</p>
-    <p class="pcolor">Be patient some games take longer to load</p>
-    <p class="pcolor">PANIC KEY IS T, USE WHEN TEACHER COMING</p>
-
-    <div class="grid">
-        <!-- Your main games -->
-        <a class="game-btn" onclick="cloak('1on1soccer/')" href="#">1on1soccer</a>
-        <a class="game-btn" onclick="cloak('2drocketleague/')" href="#">2drocketleague</a>
-        <a class="game-btn" onclick="cloak('basketbros/')" href="#">basketbros</a>
-        <a class="game-btn" onclick="cloak('bit-planes/')" href="#">bit-planes</a>
-        <a class="game-btn" onclick="cloak('cluster-rush/')" href="#">cluster-rush</a>
-        <a class="game-btn" onclick="cloak('cookieclicker/')" href="#">cookieclicker</a>
-        <a class="game-btn" onclick="cloak('drifthunters/')" href="#">drifthunters</a>
-        <a class="game-btn" onclick="cloak('flappyplane/')" href="#">flappyplane</a>
-        <a class="game-btn" onclick="cloak('gdlite/')" href="#">gdlite</a>
-        <a class="game-btn" onclick="cloak('geometryrash/')" href="#">geometryrash</a>
-        <a class="game-btn" onclick="cloak('gunmayhem2/')" href="#">gunmayhem2</a>
-        <a class="game-btn" onclick="cloak('jetpackjoyride/')" href="#">jetpackjoyride</a>
-        <a class="game-btn" onclick="cloak('js/')" href="#">js</a>
-        <a class="game-btn" onclick="cloak('lazyjump3d/')" href="#">lazyjump3d</a>
-        <a class="game-btn" onclick="cloak('motox3m-pool/')" href="#">motox3m-pool</a>
-        <a class="game-btn" onclick="cloak('motox3m-spooky/')" href="#">motox3m-spooky</a>
-        <a class="game-btn" onclick="cloak('ovo/')" href="#">ovo</a>
-        <a class="game-btn" onclick="cloak('retrobowlcollege/')" href="#">retrobowlcollege</a>
-        <a class="game-btn" onclick="cloak('rocketleague/')" href="#">rocketleague</a>
-        <a class="game-btn" onclick="cloak('ruffle/')" href="#">ruffle</a>
-        <a class="game-btn" onclick="cloak('russiancardriver/')" href="#">russiancardriver</a>
-        <a class="game-btn" onclick="cloak('slope/')" href="#">slope</a>
-        <a class="game-btn" onclick="cloak('slope3/')" href="#">slope3</a>
-        <a class="game-btn" onclick="cloak('snowrider3d/')" href="#">snowrider3d</a>
-        <a class="game-btn" onclick="cloak('stealingthediamond/')" href="#">stealingthediamond</a>
-        <a class="game-btn" onclick="cloak('stickman-hook/')" href="#">stickman-hook</a>
-        <a class="game-btn" onclick="cloak('stickmanclimb/')" href="#">stickmanclimb</a>
-        <a class="game-btn" onclick="cloak('subway-surfers-ny/')" href="#">subway-surfers-ny</a>
-        <a class="game-btn" onclick="cloak('timeshooter1/')" href="#">timeshooter1</a>
-        <a class="game-btn" onclick="cloak('timeshooter2/')" href="#">timeshooter2</a>
-        <a class="game-btn" onclick="cloak('watermelongame/')" href="#">watermelongame</a>
-        <a class="game-btn" onclick="cloak('webretro/')" href="#">webretro</a>
-        <a class="game-btn" onclick="cloak('win11/')" href="#">win11</a>
-        <a class="game-btn" onclick="cloak('yohoho/')" href="#">yohoho</a>
-        <a class="game-btn" onclick="cloak('zombocalypse/')" href="#">zombocalypse</a>
-
-        <!-- You can also add your old newgames here if needed -->
-    </div>
+<a href="1on1soccer/">1on1soccer</a>
+<a href="2drocketleague/">2drocketleague</a>
+<a href="basketbros/">basketbros</a>
+<a href="bit-planes/">bit-planes</a>
+<a href="cluster-rush/">cluster-rush</a>
+<a href="cookieclicker/">cookieclicker</a>
+<a href="drifthunters/">drifthunters</a>
+<a href="flappyplane/">flappyplane</a>
+<a href="gdlite/">gdlite</a>
+<a href="geometryrash/">geometryrash</a>
+<a href="gunmayhem2/">gunmayhem2</a>
+<a href="jetpackjoyride/">jetpackjoyride</a>
+<a href="js/">js</a>
+<a href="lazyjump3d/">lazyjump3d</a>
+<a href="motox3m-pool/">motox3m-pool</a>
+<a href="motox3m-spooky/">motox3m-spooky</a>
+<a href="ovo/">ovo</a>
+<a href="retrobowlcollege/">retrobowlcollege</a>
+<a href="rocketleague/">rocketleague</a>
+<a href="ruffle/">ruffle</a>
+<a href="russiancardriver/">russiancardriver</a>
+<a href="slope/">slope</a>
+<a href="slope3/">slope3</a>
+<a href="snowrider3d/">snowrider3d</a>
+<a href="stealingthediamond/">stealingthediamond</a>
+<a href="stickman-hook/">stickman-hook</a>
+<a href="stickmanclimb/">stickmanclimb</a>
+<a href="subway-surfers-ny/">subway-surfers-ny</a>
+<a href="timeshooter1/">timeshooter1</a>
+<a href="timeshooter2/">timeshooter2</a>
+<a href="watermelongame/">watermelongame</a>
+<a href="webretro/">webretro</a>
+<a href="win11/">win11</a>
+<a href="yohoho/">yohoho</a>
+<a href="zombocalypse/">zombocalypse</a>
 </body>
 </html>
