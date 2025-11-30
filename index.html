@@ -14,9 +14,7 @@ body {
   flex-direction: column;
   align-items: center;
 }
-h1 {
-  margin-bottom: 20px;
-}
+h1 { margin-bottom: 20px; }
 .game-btn {
   display: block;
   margin: 5px 0;
@@ -46,20 +44,23 @@ const games = [
   "timeshooter1","timeshooter2","watermelongame","webretro","win11","yohoho","zombocalypse"
 ];
 
-// Cloak function using your deployed proxy
+// Cloak function for same-repo games
 function cloak(gameName) {
-  const proxyUrl = `https://heavenlyselenite.deno.dev/proxy?game=${gameName}`;
+  const gameUrl = `/${gameName}/`; // direct path to game folder
   const newTab = window.open('about:blank', '_blank');
 
-  fetch(proxyUrl)
+  fetch(gameUrl)
     .then(res => res.text())
     .then(html => {
+      // Insert <base> so relative paths work
+      html = html.replace(/<head>/i, `<head><base href="${gameUrl}">`);
+
       newTab.document.open();
       newTab.document.write(html);
       newTab.document.close();
     })
     .catch(err => {
-      newTab.document.write("<h2>Failed to load game. Check your proxy or game URL.</h2>");
+      newTab.document.write("<h2>Failed to load game.</h2>");
       console.error(err);
     });
 }
