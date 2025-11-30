@@ -44,7 +44,7 @@ const games = [
   "timeshooter1","timeshooter2","watermelongame","webretro","win11","yohoho","zombocalypse"
 ];
 
-// Cloak function: open game in a new tab exactly as it is
+// Cloak function: open game exactly as-is
 function cloak(gameName) {
   const gameUrl = `/${gameName}/`;
   const newTab = window.open('about:blank', '_blank');
@@ -52,7 +52,7 @@ function cloak(gameName) {
   fetch(gameUrl)
     .then(res => res.text())
     .then(html => {
-      // Insert <base> so relative paths work
+      // Insert <base> so scripts/assets work
       html = html.replace(/<head>/i, `<head><base href="${gameUrl}">`);
 
       newTab.document.open();
@@ -65,7 +65,7 @@ function cloak(gameName) {
     });
 }
 
-// Dynamically generate buttons
+// Generate buttons
 const gameList = document.getElementById("game-list");
 games.forEach(game => {
   const btn = document.createElement("a");
