@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cookie Clicker Cloak Test</title>
+<title>Selenite Games - a href Cloak</title>
 <style>
 body {
   background: #000;
@@ -15,9 +15,9 @@ body {
   padding: 20px;
 }
 h1 { margin-bottom: 20px; }
-button, a.game-btn {
+a.game-btn {
   display: block;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 10px 20px;
   background: #111;
   color: #0f0;
@@ -26,30 +26,59 @@ button, a.game-btn {
   cursor: pointer;
   text-decoration: none;
 }
-button:hover, a.game-btn:hover { background: #0f0; color: #000; }
+a.game-btn:hover { background: #0f0; color: #000; }
 </style>
 </head>
 <body>
 
-<h1>Cookie Clicker Cloak Experiment</h1>
+<h1>Selenite Games - a href Cloak</h1>
 
-<!-- Method 1: Original a href cloak -->
-<a class="game-btn" onclick="cloak('/hobo/')" href="#">Open via a href cloak</a>
-
-<!-- Method 2: JavaScript button cloak -->
-<button onclick="cloak('/hobo/')">Open via JS cloak</button>
+<!-- Game links -->
+<a class="game-btn" onclick="cloak('/motox3m/')" href="#">motox3m</a>
+<a class="game-btn" onclick="cloak('/hobo/')" href="#">hobo</a>
+<a class="game-btn" onclick="cloak('/1on1soccer/')" href="#">1on1soccer</a>
+<a class="game-btn" onclick="cloak('/2drocketleague/')" href="#">2drocketleague</a>
+<a class="game-btn" onclick="cloak('/basketbros/')" href="#">basketbros</a>
+<a class="game-btn" onclick="cloak('/bit-planes/')" href="#">bit-planes</a>
+<a class="game-btn" onclick="cloak('/cluster-rush/')" href="#">cluster-rush</a>
+<a class="game-btn" onclick="cloak('/cookieclicker/')" href="#">cookieclicker</a>
+<a class="game-btn" onclick="cloak('/drifthunters/')" href="#">drifthunters</a>
+<a class="game-btn" onclick="cloak('/flappyplane/')" href="#">flappyplane</a>
+<a class="game-btn" onclick="cloak('/gdlite/')" href="#">gdlite</a>
+<a class="game-btn" onclick="cloak('/geometryrash/')" href="#">geometryrash</a>
+<a class="game-btn" onclick="cloak('/gunmayhem2/')" href="#">gunmayhem2</a>
+<a class="game-btn" onclick="cloak('/jetpackjoyride/')" href="#">jetpackjoyride</a>
+<a class="game-btn" onclick="cloak('/lazyjump3d/')" href="#">lazyjump3d</a>
+<a class="game-btn" onclick="cloak('/motox3m-pool/')" href="#">motox3m-pool</a>
+<a class="game-btn" onclick="cloak('/motox3m-spooky/')" href="#">motox3m-spooky</a>
+<a class="game-btn" onclick="cloak('/ovo/')" href="#">ovo</a>
+<a class="game-btn" onclick="cloak('/retrobowlcollege/')" href="#">retrobowlcollege</a>
+<a class="game-btn" onclick="cloak('/rocketleague/')" href="#">rocketleague</a>
+<a class="game-btn" onclick="cloak('/ruffle/')" href="#">ruffle</a>
+<a class="game-btn" onclick="cloak('/russiancardriver/')" href="#">russiancardriver</a>
+<a class="game-btn" onclick="cloak('/slope/')" href="#">slope</a>
+<a class="game-btn" onclick="cloak('/slope3/')" href="#">slope3</a>
+<a class="game-btn" onclick="cloak('/snowrider3d/')" href="#">snowrider3d</a>
+<a class="game-btn" onclick="cloak('/stealingthediamond/')" href="#">stealingthediamond</a>
+<a class="game-btn" onclick="cloak('/stickman-hook/')" href="#">stickman-hook</a>
+<a class="game-btn" onclick="cloak('/stickmanclimb/')" href="#">stickmanclimb</a>
+<a class="game-btn" onclick="cloak('/subway-surfers-ny/')" href="#">subway-surfers-ny</a>
+<a class="game-btn" onclick="cloak('/timeshooter1/')" href="#">timeshooter1</a>
+<a class="game-btn" onclick="cloak('/timeshooter2/')" href="#">timeshooter2</a>
+<a class="game-btn" onclick="cloak('/watermelongame/')" href="#">watermelongame</a>
+<a class="game-btn" onclick="cloak('/webretro/')" href="#">webretro</a>
+<a class="game-btn" onclick="cloak('/win11/')" href="#">win11</a>
+<a class="game-btn" onclick="cloak('/yohoho/')" href="#">yohoho</a>
+<a class="game-btn" onclick="cloak('/zombocalypse/')" href="#">zombocalypse</a>
 
 <script>
-// Cloak function: opens game in about:blank exactly as-is
+// Cloak function: open game exactly as-is in new tab
 function cloak(gameUrl) {
   const newTab = window.open('about:blank', '_blank');
-
   fetch(gameUrl)
     .then(res => res.text())
     .then(html => {
-      // Insert <base> so relative paths work
       html = html.replace(/<head>/i, `<head><base href="${gameUrl}">`);
-
       newTab.document.open();
       newTab.document.write(html);
       newTab.document.close();
