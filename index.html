@@ -3,23 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Selenite Cloaked Games</title>
-<style>
-body {
-  background: #000;
-  color: #0f0;
-  font-family: monospace;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-h1 { margin-bottom: 20px; }
-.game-btn {a<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cookie Clicker Cloak Test</title>
 <style>
 body {
@@ -51,7 +34,7 @@ button:hover, a.game-btn:hover { background: #0f0; color: #000; }
 <h1>Cookie Clicker Cloak Experiment</h1>
 
 <!-- Method 1: Original a href cloak -->
-<a class="game-btn" onclick="cloak('https://heavenlyselenite.deno.dev/cookieclicker/')" href="#">Open via a href cloak</a>
+<a class="game-btn" onclick="cloak('https://heavenlyselenite.deno.dev/hobo/')" href="#">Open via a href cloak</a>
 
 <!-- Method 2: JavaScript button cloak -->
 <button onclick="cloak('/cookieclicker/')">Open via JS cloak</button>
@@ -76,70 +59,6 @@ function cloak(gameUrl) {
       console.error(err);
     });
 }
-</script>
-
-</body>
-</html>
-
-  display: block;
-  margin: 5px 0;
-  padding: 10px 20px;
-  background: #111;
-  color: #0f0;
-  border: 1px solid #0f0;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-}
-.game-btn:hover { background: #0f0; color: #000; }
-</style>
-</head>
-<body>
-
-<h1>Selenite Cloaked Games</h1>
-<div id="game-list"></div>
-
-<script>
-// List of games
-const games = [
-  "motox3m","hobo","1on1soccer","2drocketleague","basketbros","bit-planes","cluster-rush","cookieclicker",
-  "drifthunters","flappyplane","gdlite","geometryrash","gunmayhem2","jetpackjoyride","lazyjump3d",
-  "motox3m-pool","motox3m-spooky","ovo","retrobowlcollege","rocketleague","ruffle","russiancardriver",
-  "slope","slope3","snowrider3d","stealingthediamond","stickman-hook","stickmanclimb","subway-surfers-ny",
-  "timeshooter1","timeshooter2","watermelongame","webretro","win11","yohoho","zombocalypse"
-];
-
-// Cloak function: open game exactly as-is
-function cloak(gameName) {
-  const gameUrl = `/${gameName}/`;
-  const newTab = window.open('about:blank', '_blank');
-
-  fetch(gameUrl)
-    .then(res => res.text())
-    .then(html => {
-      // Insert <base> so scripts/assets work
-      html = html.replace(/<head>/i, `<head><base href="${gameUrl}">`);
-
-      newTab.document.open();
-      newTab.document.write(html); // write game HTML exactly
-      newTab.document.close();
-    })
-    .catch(err => {
-      newTab.document.write("<h2>Failed to load game.</h2>");
-      console.error(err);
-    });
-}
-
-// Generate buttons
-const gameList = document.getElementById("game-list");
-games.forEach(game => {
-  const btn = document.createElement("a");
-  btn.className = "game-btn";
-  btn.href = "#";
-  btn.textContent = game;
-  btn.onclick = () => cloak(game);
-  gameList.appendChild(btn);
-});
 </script>
 
 </body>
