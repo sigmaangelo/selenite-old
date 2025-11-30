@@ -3,40 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cloak Test</title>
+<title>Selenite Cloaked Games</title>
 <style>
-body { background: #000; color: #0f0; font-family: monospace; padding: 20px; }
-button { padding: 10px 20px; background: #111; color: #0f0; border: 1px solid #0f0; cursor: pointer; margin: 5px; }
-button:hover { background: #0f0; color: #000; }
+body {
+  background: #000;
+  color: #0f0;
+  font-family: monospace;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  margin-bottom: 20px;
+}
+.game-btn {
+  display: block;
+  margin: 5px 0;
+  padding: 10px 20px;
+  background: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.game-btn:hover { background: #0f0; color: #000; }
 </style>
 </head>
 <body>
 
-<h1>Cloak Test</h1>
-<button onclick="cloak('win11/')">Play Motox3m</button>
+<h1>Selenite Cloaked Games</h1>
+<div id="game-list"></div>
 
 <script>
+// List of all games
+const games = [
+  "motox3m","hobo","1on1soccer","2drocketleague","basketbros","bit-planes","cluster-rush","cookieclicker",
+  "drifthunters","flappyplane","gdlite","geometryrash","gunmayhem2","jetpackjoyride","lazyjump3d",
+  "motox3m-pool","motox3m-spooky","ovo","retrobowlcollege","rocketleague","ruffle","russiancardriver",
+  "slope","slope3","snowrider3d","stealingthediamond","stickman-hook","stickmanclimb","subway-surfers-ny",
+  "timeshooter1","timeshooter2","watermelongame","webretro","win11","yohoho","zombocalypse"
+];
+
+// Cloak function using your deployed proxy
 function cloak(gameName) {
-  const gameUrl = `https://heavenlyselenite.deno.dev/${gameName}/`; // Replace with your selenite-old repo URL
+  const proxyUrl = `https://heavenlyselenite.deno.dev/proxy?game=${gameName}`;
   const newTab = window.open('about:blank', '_blank');
 
-  fetch(gameUrl)
+  fetch(proxyUrl)
     .then(res => res.text())
     .then(html => {
-      // Add <base> so relative paths load correctly
-      const baseUrl = new URL(gameUrl).origin + new URL(gameUrl).pathname;
-      const modifiedHtml = html.replace(/<head>/i, `<head><base href="${baseUrl}">`);
-
-      // Write HTML into about:blank tab
       newTab.document.open();
-      newTab.document.write(modifiedHtml);
+      newTab.document.write(html);
       newTab.document.close();
     })
     .catch(err => {
-      newTab.document.write("<h2>Failed to load game. Check CORS headers on selenite-old.</h2>");
+      newTab.document.write("<h2>Failed to load game. Check your proxy or game URL.</h2>");
       console.error(err);
     });
 }
+
+// Dynamically generate game buttons
+const gameList = document.getElementById("game-list");
+games.forEach(game => {
+  const btn = document.createElement("a");
+  btn.className = "game-btn";
+  btn.href = "#";
+  btn.textContent = game;
+  btn.onclick = () => cloak(game);
+  gameList.appendChild(btn);
+});
 </script>
 
 </body>
