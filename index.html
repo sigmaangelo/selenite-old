@@ -4,36 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Selenite Games - a href Cloak</title> 
+
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
 body {
-  background: #000;
-  color: #0f0;
-  font-family: monospace;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+  background: #0a0a0a;
+  color: white;
+  padding: 30px;
 }
-h1 { margin-bottom: 20px; }
+
+h1 {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 38px;
+  color: #00ffc8;
+  text-shadow: 0 0 12px #00ffc8;
+}
+
+/* GAME GRID — same as your games.html */
+.games-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  padding: 10px;
+}
+
+/* GAME BOX — same style as your other game list */
 a.game-btn {
-  display: block;
-  margin: 5px 0;
-  padding: 10px 20px;
   background: #111;
-  color: #0f0;
-  border: 1px solid #0f0;
-  border-radius: 5px;
-  cursor: pointer;
+  border: 2px solid #1e1e1e;
+  border-radius: 14px;
+  padding: 22px;
+  color: white;
   text-decoration: none;
+  font-size: 20px;
+  text-align: center;
+  transition: 0.25s;
+  display: block;
 }
-a.game-btn:hover { background: #0f0; color: #000; }
+
+a.game-btn:hover {
+  background: #1b1b1b;
+  border-color: #00ffc8;
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(0, 255, 200, 0.35);
+}
+
 </style>
 </head>
 <body>
 
 <h1>Selenite Games - a href Cloak</h1>
 
-<!-- Game links -->
+<div class="games-container">
+
 <a class="game-btn" onclick="cloak('/motox3m/')" href="#">motox3m</a>
 <a class="game-btn" onclick="cloak('/hobo/')" href="#">hobo</a>
 <a class="game-btn" onclick="cloak('/1on1soccer/')" href="#">1on1soccer</a>
@@ -70,6 +100,8 @@ a.game-btn:hover { background: #0f0; color: #000; }
 <a class="game-btn" onclick="cloak('/win11/')" href="#">win11</a>
 <a class="game-btn" onclick="cloak('/yohoho/')" href="#">yohoho</a>
 <a class="game-btn" onclick="cloak('/zombocalypse/')" href="#">zombocalypse</a>
+
+</div>
 
 <script>
 // Cloak function: open game exactly as-is in new tab
