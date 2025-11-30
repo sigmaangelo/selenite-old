@@ -1,47 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Sigma Games</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0b0b;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.game-btn {
+    display: block;
+    margin: 5px 0;
+    padding: 10px 20px;
+    background: #1a1a1a;
+    color: #0f0;
+    text-decoration: none;
+    border: 1px solid #0f0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.game-btn:hover {
+    background: #0f0;
+    color: #000;
+}
+</style>
 </head>
 <body>
-    <a href="moto/">motox3m</a>
 
-  <a href="hobo/">hobo</a>
-<a href="1on1soccer/">1on1soccer</a>
-<a href="2drocketleague/">2drocketleague</a>
-<a href="basketbros/">basketbros</a>
-<a href="bit-planes/">bit-planes</a>
-<a href="cluster-rush/">cluster-rush</a>
-<a href="cookieclicker/">cookieclicker</a>
-<a href="drifthunters/">drifthunters</a>
-<a href="flappyplane/">flappyplane</a>
-<a href="gdlite/">gdlite</a>
-<a href="geometryrash/">geometryrash</a>
-<a href="gunmayhem2/">gunmayhem2</a>
-<a href="jetpackjoyride/">jetpackjoyride</a>
-<a href="js/">js</a>
-<a href="lazyjump3d/">lazyjump3d</a>
-<a href="motox3m-pool/">motox3m-pool</a>
-<a href="motox3m-spooky/">motox3m-spooky</a>
-<a href="ovo/">ovo</a>
-<a href="retrobowlcollege/">retrobowlcollege</a>
-<a href="rocketleague/">rocketleague</a>
-<a href="ruffle/">ruffle</a>
-<a href="russiancardriver/">russiancardriver</a>
-<a href="slope/">slope</a>
-<a href="slope3/">slope3</a>
-<a href="snowrider3d/">snowrider3d</a>
-<a href="stealingthediamond/">stealingthediamond</a>
-<a href="stickman-hook/">stickman-hook</a>
-<a href="stickmanclimb/">stickmanclimb</a>
-<a href="subway-surfers-ny/">subway-surfers-ny</a>
-<a href="timeshooter1/">timeshooter1</a>
-<a href="timeshooter2/">timeshooter2</a>
-<a href="watermelongame/">watermelongame</a>
-<a href="webretro/">webretro</a>
-<a href="win11/">win11</a>
-<a href="yohoho/">yohoho</a>
-<a href="zombocalypse/">zombocalypse</a>
-</body>
-</html>
+<h1>Selenite Games Cloak</h1>
+
+<!-- Game Buttons -->
+<div id="game-list">
+<!-- Buttons will be here -->
+</div>
+
+<script>
+// List of games
+const games = [
+  "motox3m","hobo","1on1soccer","2drocketleague","basketbros","bit-planes","cluster-rush","cookieclicker",
+  "drifthunters","flappyplane","gdlite","geometryrash","gunmayhem2","jetpackjoyride","lazyjump3d",
+  "motox3m-pool","motox3m-spooky","ovo","retrobowlcollege","rocketleague","ruffle","russiancardriver",
+  "slope","slope3","snowrider3d","stealingthediamond","stickman-hook","stickmanclimb","subway-surfers-ny",
+  "timeshooter1","timeshooter2","watermelongame","webretro","win11","yohoho","zombocalypse"
+];
+
+// Function to cloak and open in new tab
+function cloak(gameName) {
+  const gameUrl = `https://selenite-old.deno.dev/${gameName}/`;
+  const newTab = window.open('about:blank', '_blank');
+
+  fetch(gameUrl)
+    .then(res => res.text())
+    .then(html => {
+      const baseUrl = new URL(gameUrl).origin + new URL(gameUrl).pathname;
+      const modifiedHtml = html.replace(
+        /<head>/i,
+        `<head><base href="${baseUrl}">`
+      );
+      newTab.document.open();
+      newTab.document.write(modifiedHtml);
+      newTab.document.close();
+    })
+    .catch(err => console.error("Failed to load game:", err));
+}
+
+// Generate buttons dynamically
+const gameList = document.getElementById("game-list");
+games.forEach(game => {
+  const a = document.createElement("a");
+  a.className = "game-btn";
+  a.href = "#";
+  a.textContent = game;
+  a.onclick = () => cloak(game);
+  gameList.appendChild(a);
+});
+</script>
