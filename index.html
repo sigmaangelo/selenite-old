@@ -35,7 +35,7 @@ h1 { margin-bottom: 20px; }
 <div id="game-list"></div>
 
 <script>
-// List of all games
+// List of games
 const games = [
   "motox3m","hobo","1on1soccer","2drocketleague","basketbros","bit-planes","cluster-rush","cookieclicker",
   "drifthunters","flappyplane","gdlite","geometryrash","gunmayhem2","jetpackjoyride","lazyjump3d",
@@ -44,9 +44,9 @@ const games = [
   "timeshooter1","timeshooter2","watermelongame","webretro","win11","yohoho","zombocalypse"
 ];
 
-// Cloak function for same-repo games
+// Cloak function for same-repo games, with proper scaling
 function cloak(gameName) {
-  const gameUrl = `/${gameName}/`; // direct path to game folder
+  const gameUrl = `/${gameName}/`;
   const newTab = window.open('about:blank', '_blank');
 
   fetch(gameUrl)
@@ -54,6 +54,15 @@ function cloak(gameName) {
     .then(html => {
       // Insert <base> so relative paths work
       html = html.replace(/<head>/i, `<head><base href="${gameUrl}">`);
+
+      // Inject CSS to fix width/height
+      html = html.replace(
+        /<\/head>/i,
+        `<style>
+           html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#000; }
+           canvas, iframe { display:block; width:100% !important; height:100% !important; }
+         </style></head>`
+      );
 
       newTab.document.open();
       newTab.document.write(html);
