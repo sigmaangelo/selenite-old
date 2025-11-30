@@ -15,7 +15,72 @@ body {
   align-items: center;
 }
 h1 { margin-bottom: 20px; }
-.game-btn {
+.game-btn {a<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Clicker Cloak Test</title>
+<style>
+body {
+  background: #000;
+  color: #0f0;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+h1 { margin-bottom: 20px; }
+button, a.game-btn {
+  display: block;
+  margin: 10px 0;
+  padding: 10px 20px;
+  background: #111;
+  color: #0f0;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+button:hover, a.game-btn:hover { background: #0f0; color: #000; }
+</style>
+</head>
+<body>
+
+<h1>Cookie Clicker Cloak Experiment</h1>
+
+<!-- Method 1: Original a href cloak -->
+<a class="game-btn" onclick="cloak('https://heavenlyselenite.deno.dev/cookieclicker/')" href="#">Open via a href cloak</a>
+
+<!-- Method 2: JavaScript button cloak -->
+<button onclick="cloak('/cookieclicker/')">Open via JS cloak</button>
+
+<script>
+// Cloak function: opens game in about:blank exactly as-is
+function cloak(gameUrl) {
+  const newTab = window.open('about:blank', '_blank');
+
+  fetch(gameUrl)
+    .then(res => res.text())
+    .then(html => {
+      // Insert <base> so relative paths work
+      html = html.replace(/<head>/i, `<head><base href="${gameUrl}">`);
+
+      newTab.document.open();
+      newTab.document.write(html);
+      newTab.document.close();
+    })
+    .catch(err => {
+      newTab.document.write("<h2>Failed to load game.</h2>");
+      console.error(err);
+    });
+}
+</script>
+
+</body>
+</html>
+
   display: block;
   margin: 5px 0;
   padding: 10px 20px;
