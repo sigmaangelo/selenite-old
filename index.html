@@ -1,10 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloak Test</title>
+<style>
+body { background: #000; color: #0f0; font-family: monospace; padding: 20px; }
+button { padding: 10px 20px; background: #111; color: #0f0; border: 1px solid #0f0; cursor: pointer; margin: 5px; }
+button:hover { background: #0f0; color: #000; }
+</style>
+</head>
+<body>
+
+<h1>Cloak Test</h1>
+<button onclick="cloak('motox3m')">Play Motox3m</button>
+
 <script>
 function cloak(gameName) {
-  const gameUrl = `https://selenite-old.deno.dev/${gameName}/`;
-  // Open directly in a new tab
-  window.open(gameUrl, "_blank");
+  const gameUrl = `https://heavenlyselenite.deno.dev/${gameName}/`; // Replace with your selenite-old repo URL
+  const newTab = window.open('about:blank', '_blank');
+
+  fetch(gameUrl)
+    .then(res => res.text())
+    .then(html => {
+      // Add <base> so relative paths load correctly
+      const baseUrl = new URL(gameUrl).origin + new URL(gameUrl).pathname;
+      const modifiedHtml = html.replace(/<head>/i, `<head><base href="${baseUrl}">`);
+
+      // Write HTML into about:blank tab
+      newTab.document.open();
+      newTab.document.write(modifiedHtml);
+      newTab.document.close();
+    })
+    .catch(err => {
+      newTab.document.write("<h2>Failed to load game. Check CORS headers on selenite-old.</h2>");
+      console.error(err);
+    });
 }
 </script>
 
-<!-- Example button -->
-<a class="game-btn" href="#" onclick="cloak('motox3m')">motox3m</a>
+</body>
+</html>
