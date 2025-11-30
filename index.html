@@ -1,77 +1,10 @@
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #0b0b0b;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-.game-btn {
-    display: block;
-    margin: 5px 0;
-    padding: 10px 20px;
-    background: #1a1a1a;
-    color: #0f0;
-    text-decoration: none;
-    border: 1px solid #0f0;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.game-btn:hover {
-    background: #0f0;
-    color: #000;
-}
-</style>
-</head>
-<body>
-
-<h1>Selenite Games Cloak</h1>
-
-<!-- Game Buttons -->
-<div id="game-list">
-<!-- Buttons will be here -->
-</div>
-
 <script>
-// List of games
-const games = [
-  "motox3m","hobo","1on1soccer","2drocketleague","basketbros","bit-planes","cluster-rush","cookieclicker",
-  "drifthunters","flappyplane","gdlite","geometryrash","gunmayhem2","jetpackjoyride","lazyjump3d",
-  "motox3m-pool","motox3m-spooky","ovo","retrobowlcollege","rocketleague","ruffle","russiancardriver",
-  "slope","slope3","snowrider3d","stealingthediamond","stickman-hook","stickmanclimb","subway-surfers-ny",
-  "timeshooter1","timeshooter2","watermelongame","webretro","win11","yohoho","zombocalypse"
-];
-
-// Function to cloak and open in new tab
 function cloak(gameName) {
   const gameUrl = `https://selenite-old.deno.dev/${gameName}/`;
-  const newTab = window.open('about:blank', '_blank');
-
-  fetch(gameUrl)
-    .then(res => res.text())
-    .then(html => {
-      const baseUrl = new URL(gameUrl).origin + new URL(gameUrl).pathname;
-      const modifiedHtml = html.replace(
-        /<head>/i,
-        `<head><base href="${baseUrl}">`
-      );
-      newTab.document.open();
-      newTab.document.write(modifiedHtml);
-      newTab.document.close();
-    })
-    .catch(err => console.error("Failed to load game:", err));
+  // Open directly in a new tab
+  window.open(gameUrl, "_blank");
 }
-
-// Generate buttons dynamically
-const gameList = document.getElementById("game-list");
-games.forEach(game => {
-  const a = document.createElement("a");
-  a.className = "game-btn";
-  a.href = "#";
-  a.textContent = game;
-  a.onclick = () => cloak(game);
-  gameList.appendChild(a);
-});
 </script>
+
+<!-- Example button -->
+<a class="game-btn" href="#" onclick="cloak('motox3m')">motox3m</a>
