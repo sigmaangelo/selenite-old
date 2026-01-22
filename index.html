@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+index.html from the new games repository. make it like the gxmes.html in the main repository. new games index.html:<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,16 +7,24 @@
 
 <style>
 * {
-  margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
-  background: #0a0a0a; color: white; padding: 30px;
+  background: #0a0a0a;
+  color: white;
+  padding: 30px;
 }
 
 h1 {
-  text-align: center; margin-bottom: 35px; font-size: 38px;
-  color: #00ffc8; text-shadow: 0 0 12px #00ffc8;
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 38px;
+  color: #00ffc8;
+  text-shadow: 0 0 12px #00ffc8;
 }
 
 /* GAME GRID — same as your games.html */
@@ -47,74 +55,72 @@ a.game-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(0, 255, 200, 0.35);
 }
+
 </style>
 </head>
 <body>
 
 <h1>NEW GAMES</h1>
-<p>*i was too lazy to link them directly to the normal games page so yeah</p>
+<p>*i was to lazy to link them directly to the normal games page so yeah</p>
 
 <div class="games-container">
-  <a class="game-btn" data-url="/motox3m/">motox3m</a>
-  <a class="game-btn" data-url="/hobo/">hobo</a>
-  <a class="game-btn" data-url="/1on1soccer/">1on1soccer</a>
-  <a class="game-btn" data-url="/2drocketleague/">2drocketleague</a>
-  <a class="game-btn" data-url="/basketbros/">basketbros</a>
-  <a class="game-btn" data-url="/bit-planes/">bit-planes</a>
-  <a class="game-btn" data-url="/cluster-rush/">cluster-rush</a>
-  <a class="game-btn" data-url="/cookieclicker/">cookieclicker</a>
-  <a class="game-btn" data-url="/drifthunters/">drifthunters</a>
-  <a class="game-btn" data-url="/flappyplane/">flappyplane</a>
-  <a class="game-btn" data-url="/gdlite/">gdlite</a>
-  <a class="game-btn" data-url="/geometryrash/">geometryrash</a>
-  <a class="game-btn" data-url="/gunmayhem2/">gunmayhem2</a>
-  <a class="game-btn" data-url="/jetpackjoyride/">jetpackjoyride</a>
-  <a class="game-btn" data-url="/lazyjump3d/">lazyjump3d</a>
-  <a class="game-btn" data-url="/motox3m-pool/">motox3m-pool</a>
-  <a class="game-btn" data-url="/motox3m-spooky/">motox3m-spooky</a>
-  <a class="game-btn" data-url="/ovo/">ovo</a>
-  <a class="game-btn" data-url="/retrobowlcollege/">retrobowlcollege</a>
-  <a class="game-btn" data-url="/rocketleague/">rocketleague</a>
-  <a class="game-btn" data-url="/ruffle/">ruffle</a>
-  <a class="game-btn" data-url="/russiancardriver/">russiancardriver</a>
-  <a class="game-btn" data-url="/slope/">slope</a>
-  <a class="game-btn" data-url="/slope3/">slope3</a>
-  <a class="game-btn" data-url="/snowrider3d/">snowrider3d</a>
-  <a class="game-btn" data-url="/stealingthediamond/">stealingthediamond</a>
-  <a class="game-btn" data-url="/stickman-hook/">stickman-hook</a>
-  <a class="game-btn" data-url="/stickmanclimb/">stickmanclimb</a>
-  <a class="game-btn" data-url="/subway-surfers-ny/">subway-surfers-ny</a>
-  <a class="game-btn" data-url="/timeshooter1/">timeshooter1</a>
-  <a class="game-btn" data-url="/timeshooter2/">timeshooter2</a>
-  <a class="game-btn" data-url="/watermelongame/">watermelongame</a>
-  <a class="game-btn" data-url="/webretro/">webretro</a>
-  <a class="game-btn" data-url="/win11/">win11</a>
-  <a class="game-btn" data-url="/yohoho/">yohoho</a>
-  <a class="game-btn" data-url="/zombocalypse/">zombocalypse</a>
+
+<a class="game-btn" onclick="cloak('/motox3m/')" href="#">motox3m</a>
+<a class="game-btn" onclick="cloak('/hobo/')" href="#">hobo</a>
+<a class="game-btn" onclick="cloak('/1on1soccer/')" href="#">1on1soccer</a>
+<a class="game-btn" onclick="cloak('/2drocketleague/')" href="#">2drocketleague</a>
+<a class="game-btn" onclick="cloak('/basketbros/')" href="#">basketbros</a>
+<a class="game-btn" onclick="cloak('/bit-planes/')" href="#">bit-planes</a>
+<a class="game-btn" onclick="cloak('/cluster-rush/')" href="#">cluster-rush</a>
+<a class="game-btn" onclick="cloak('/cookieclicker/')" href="#">cookieclicker</a>
+<a class="game-btn" onclick="cloak('/drifthunters/')" href="#">drifthunters</a>
+<a class="game-btn" onclick="cloak('/flappyplane/')" href="#">flappyplane</a>
+<a class="game-btn" onclick="cloak('/gdlite/')" href="#">gdlite</a>
+<a class="game-btn" onclick="cloak('/geometryrash/')" href="#">geometryrash</a>
+<a class="game-btn" onclick="cloak('/gunmayhem2/')" href="#">gunmayhem2</a>
+<a class="game-btn" onclick="cloak('/jetpackjoyride/')" href="#">jetpackjoyride</a>
+<a class="game-btn" onclick="cloak('/lazyjump3d/')" href="#">lazyjump3d</a>
+<a class="game-btn" onclick="cloak('/motox3m-pool/')" href="#">motox3m-pool</a>
+<a class="game-btn" onclick="cloak('/motox3m-spooky/')" href="#">motox3m-spooky</a>
+<a class="game-btn" onclick="cloak('/ovo/')" href="#">ovo</a>
+<a class="game-btn" onclick="cloak('/retrobowlcollege/')" href="#">retrobowlcollege</a>
+<a class="game-btn" onclick="cloak('/rocketleague/')" href="#">rocketleague</a>
+<a class="game-btn" onclick="cloak('/ruffle/')" href="#">ruffle</a>
+<a class="game-btn" onclick="cloak('/russiancardriver/')" href="#">russiancardriver</a>
+<a class="game-btn" onclick="cloak('/slope/')" href="#">slope</a>
+<a class="game-btn" onclick="cloak('/slope3/')" href="#">slope3</a>
+<a class="game-btn" onclick="cloak('/snowrider3d/')" href="#">snowrider3d</a>
+<a class="game-btn" onclick="cloak('/stealingthediamond/')" href="#">stealingthediamond</a>
+<a class="game-btn" onclick="cloak('/stickman-hook/')" href="#">stickman-hook</a>
+<a class="game-btn" onclick="cloak('/stickmanclimb/')" href="#">stickmanclimb</a>
+<a class="game-btn" onclick="cloak('/subway-surfers-ny/')" href="#">subway-surfers-ny</a>
+<a class="game-btn" onclick="cloak('/timeshooter1/')" href="#">timeshooter1</a>
+<a class="game-btn" onclick="cloak('/timeshooter2/')" href="#">timeshooter2</a>
+<a class="game-btn" onclick="cloak('/watermelongame/')" href="#">watermelongame</a>
+<a class="game-btn" onclick="cloak('/webretro/')" href="#">webretro</a>
+<a class="game-btn" onclick="cloak('/win11/')" href="#">win11</a>
+<a class="game-btn" onclick="cloak('/yohoho/')" href="#">yohoho</a>
+<a class="game-btn" onclick="cloak('/zombocalypse/')" href="#">zombocalypse</a>
+
 </div>
 
 <script>
-// Main cloak iframe container from the fullscreen cloak page
-// This assumes you have an iframe with id="homeFrame" or similar in the main page
+// Cloak function: open game exactly as-is in new tab
 function cloak(gameUrl) {
-  const homeIframe = parent.document.getElementById('homeFrame'); // get the fullscreen cloak iframe
-  if (!homeIframe) {
-    console.error("Fullscreen iframe not found");
-    return;
-  }
-
-  // Set iframe to the game page
-  homeIframe.src = gameUrl;
-  homeIframe.style.display = 'block';
+  const newTab = window.open('about:blank', '_blank');
+  fetch(gameUrl)
+    .then(res => res.text())
+    .then(html => {
+      html = html.replace(/<head>/i, `<head><base href="${gameUrl}">`);
+      newTab.document.open();
+      newTab.document.write(html);
+      newTab.document.close();
+    })
+    .catch(err => {
+      newTab.document.write("<h2>Failed to load game.</h2>");
+      console.error(err);
+    });
 }
-
-// Attach cloak function to all game buttons
-document.querySelectorAll('.game-btn').forEach(btn => {
-  btn.addEventListener('click', e => {
-    e.preventDefault();
-    cloak(btn.dataset.url);
-  });
-});
 </script>
 
 </body>
