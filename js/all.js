@@ -1,6 +1,4 @@
-/* =========================
-   TAB CLOAK
-========================= */
+
 
 let backupIcon = null;
 let backupTitle = document.title;
