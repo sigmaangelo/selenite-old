@@ -1,5 +1,4 @@
 
-
 let backupIcon = null;
 let backupTitle = document.title;
 
@@ -11,7 +10,6 @@ function getCookie(name) {
   }
   return "";
 }
-
 function setFavicon(href) {
   document.querySelectorAll("link[rel*='icon']").forEach(l => l.remove());
   const link = document.createElement("link");
